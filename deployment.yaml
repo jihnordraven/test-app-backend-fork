@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-app-deployment
+  namespace: freedomindz-site
+  labels:
+    app: test-app-deployment
+spec:
+  selector:
+    matchLabels:
+      project: test-app
+  template:
+    metadata:
+      namespace: freedomindz-site
+      labels:
+        project: test-app
+    spec:
+      containers:
+         - name: test-app-container
+           image: jihnordraven/test-app-container:latest
+           ports:
+             - containerPort: 4200
+
